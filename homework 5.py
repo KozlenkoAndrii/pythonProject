@@ -16,8 +16,8 @@ def function (a,b):
     elif type(a)==str and type(b)==str:
         return (a+b)
     elif type(a)==str and type(b)==float:
-        slovar={a:b}
-        return slovar
+        slovary={a:b}
+        return slovary
     else:
         return "non-compliance by the condition of the task"
 print(function(33,33))

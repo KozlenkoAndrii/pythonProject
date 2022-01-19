@@ -182,5 +182,5 @@ def task5(raw_string):
     return result
 
 
-res = task5('a  !sdf asdf, qwert qwertyjkl zxc er erty wert r r yuu u asdf ,:')
+res = task5('a !sdf asdf, qwert qwertyjkl zxc er erty wert r r yuu u asdf ,:')
 print(res)

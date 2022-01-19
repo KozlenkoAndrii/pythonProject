@@ -93,6 +93,36 @@ def play_operation():
 
 play_operation()
 
+# ещё вариант
+
+def yes_or_no(operation):
+    yes = ('Y', 'yes', 'Yes', 'y')
+    no = ('N', 'no', 'n', 'no')
+
+    while True:
+        operation = input(f"Повторить операцию {operation}? (Y/N): ")
+
+        if operation not in (*yes, *no):
+            print("Wrong answer")
+            continue
+
+        return operation in yes
+
+
+def play_operation():
+
+    while True:
+        print('Hello!')
+        repeat = yes_or_no('Hello?')
+
+        if not repeat:
+            break
+
+    print('The end')
+
+
+play_operation()
+
 ''' 5. Задание. **Пользователь вводит строку произвольной длины. Функция должна вернуть словарь следующего содержания:
 {
 "0":количество пробелов в строке
@@ -124,3 +154,33 @@ def foo():
     print(result)
 
 foo()
+
+# ещё вариант
+
+def task5(raw_string):
+    text_string = raw_string
+    punctuation = '.,-!?():;'
+    result = {
+        0: text_string.count(' '),
+        'punctuation': [],
+    }
+
+    for char in punctuation:
+        if char in text_string:
+            result['punctuation'].append(char)
+            text_string = text_string.replace(char, '')
+
+    word_list = text_string.split()
+
+    for word in word_list:
+        word_length = len(word)
+        if word_length not in result:
+            result[word_length] = [word]
+        else:
+            result[word_length].append(word)
+
+    return result
+
+
+res = task5('a  !sdf asdf, qwert qwertyjkl zxc er erty wert r r yuu u asdf ,:')
+print(res)
